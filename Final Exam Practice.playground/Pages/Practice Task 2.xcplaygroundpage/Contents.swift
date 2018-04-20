@@ -26,16 +26,30 @@ let canvas = Canvas(width: 400, height: 600)
 // Begin your solution here...
 
 // REMINDER: here's how to create an n-sided polygon with a fill
+
+//background
+canvas.fillColor = Color.init(hue: 45, saturation: 100, brightness: 100, alpha: 100)
+canvas.drawRectangle(centreX: 200, centreY: 300, width: 400, height: 600)
+
+
 canvas.fillColor = Color(hue: 120, saturation: 80, brightness: 90, alpha: 100)
 canvas.drawShapesWithBorders = false
-var vertices : [Point] = []
-vertices.append(Point(x: 50, y: 100))
-vertices.append(Point(x: 75, y: 125))
-vertices.append(Point(x: 100, y: 100))
-canvas.drawCustomShape(with: vertices)
+
+for x in stride(from: -80, to: 440, by: 130) {
+    var vertices : [Point] = []
+    vertices.append(Point(x: x, y: 150))
+    vertices.append(Point(x: x + 20, y: 260))
+    vertices.append(Point(x: x + 130 + 10, y: 260))
+    vertices.append(Point(x: x + 120, y: 150))
+    canvas.drawCustomShape(with: vertices)
+}
+
+
 
 // REMINDER: here's how to create text in a certain location
-canvas.drawText(message: "subhumans", size: 24, x: 100, y: 150, kerning: 0)
+
+
+canvas.drawText(message: "subhumans", size: 50, x: 10, y: 330, kerning: 0)
 // HINT: You can use the kerning property to change the distance between letters
 //       Try adjusting the value to positive or negative values. What happens?
 
